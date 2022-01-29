@@ -1,15 +1,22 @@
-const Generator = require("yeoman-generator");
+const Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
-  vscode() {
-    this.fs.copy(this.templatePath(".vscode"), this.destinationPath(".vscode"));
-  }
+  async initialize() {
+    const answers = await this.prompt([
+      {
+        type: 'list',
+        name: 'config',
+        message: 'What config do you want?',
+        choices: [
+          {
+            name: 'vscode',
+          },
+        ],
+      },
+    ]);
 
-  eslintIgnore() {
-    this.fs.copy(this.templatePath(".eslintignore"), this.destinationPath(".eslintignore"));
-  }
-
-  editorconfig() {
-    this.fs.copy(this.templatePath(".editorconfig"), this.destinationPath(".editorconfig"));
+    if (answers.config.includes('vscode')) {
+      this.composeWith(require.resolve('./vscode'));
+    }
   }
 };

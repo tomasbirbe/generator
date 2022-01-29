@@ -3,19 +3,19 @@ const Generator = require("yeoman-generator");
 module.exports = class extends Generator {
   async initialize() {
     const answers = await this.prompt([
-      {
-        type: "list",
-        name: "category",
-        message: "What do you need?",
-        choices: [
-          {
-            name: "Config",
-          },
-          {
-            name: "React",
-          },
-        ],
-      },
+      // {
+      //   type: "list",
+      //   name: "category",
+      //   message: "What do you need?",
+      //   choices: [
+      //     {
+      //       name: "Config",
+      //     },
+      //     {
+      //       name: "React",
+      //     },
+      //   ],
+      // },
       {
         type: "list",
         name: "feature",
@@ -34,18 +34,15 @@ module.exports = class extends Generator {
           {
             name: "TypeScript",
           },
-          {
-            name: "React",
-          },
         ],
       },
     ]);
 
-    if (answers.category.includes("Config")) {
-      this.composeWith(require.resolve("./config"));
-    }
-    if (answers.category.includes("React")) {
-      this.composeWith(require.resolve("./react"));
+    // if (answers.category.includes("Config")) {
+    //   this.composeWith(require.resolve("./config"));
+    // }
+    // if (answers.category.includes("React")) {
+    //   this.composeWith(require.resolve("./react"));
 
       if (answers.feature.includes("Eslint")) {
         this.composeWith(require.resolve("./react/eslint"));

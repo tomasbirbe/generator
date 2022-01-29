@@ -2,7 +2,7 @@ const Generator = require("yeoman-generator");
 
 module.exports = class extends Generator {
   installDependencies() {
-    this.npmInstall(
+    this.addDevDependencies(
       [
         "prettier",
         "eslint",
@@ -22,18 +22,6 @@ module.exports = class extends Generator {
   }
 
   eslint() {
-    this.fs.copy(this.templatePath(".eslintrc"), this.destinationPath(".eslintrc"));
-  }
-
-  vscode() {
-    this.fs.copy(this.templatePath(".vscode"), this.destinationPath(".vscode"));
-  }
-
-  eslintIgnore() {
-    this.fs.copy(this.templatePath(".eslintignore"), this.destinationPath(".eslintignore"));
-  }
-
-  editorconfig() {
-    this.fs.copy(this.templatePath(".editorconfig"), this.destinationPath(".editorconfig"));
+    this.fs.copy(this.templatePath(".eslintrc.js"), this.destinationPath(".eslintrc.js"));
   }
 };

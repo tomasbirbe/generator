@@ -44,13 +44,13 @@ module.exports = class extends Generator {
     // if (answers.category.includes("React")) {
     //   this.composeWith(require.resolve("./react"));
 
-      if (answers.feature.includes("Eslint")) {
-        this.composeWith(require.resolve("./react/eslint"));
+    if (answers.feature.includes("Eslint")) {
+      this.composeWith(require.resolve("./react/eslint"));
 
-        if (answers.feature.includes("TypeScript")) {
-          this.composeWith(require.resolve("./react/eslint/typescript"));
-        }
+      if (answers.feature.includes("TypeScript")) {
+        this.composeWith(require.resolve("./react/eslint/typescript"));
       }
     }
+    // }
   }
 };

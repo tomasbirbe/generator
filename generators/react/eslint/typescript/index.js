@@ -2,7 +2,7 @@ const Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
   installDependencies() {
-    this.addDevDependencies([
+    this.npmInstall([
       'prettier',
       'eslint',
       'eslint-config-prettier',

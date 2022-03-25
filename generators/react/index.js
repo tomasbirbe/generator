@@ -9,7 +9,7 @@ module.exports = class extends Generator {
         message: 'What feature do you want?',
         choices: [
           {
-            name: 'Eslint',
+            name: 'eslint',
           },
         ],
       },
@@ -19,14 +19,14 @@ module.exports = class extends Generator {
         message: 'What lang are you using?',
         choices: [
           {
-            name: 'TypeScript',
+            name: 'typescript',
           },
         ],
       },
     ]);
 
     if (answers.feature) {
-      if (answers.lang.includes('TypeScript')) {
+      if (answers.lang.includes('typescript')) {
         this.composeWith(require.resolve('./eslint/typescript'));
       }
     }
